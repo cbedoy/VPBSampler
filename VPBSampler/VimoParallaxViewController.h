@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VimoParallaxViewController.h
 //  VPBSampler
 //
 //  Created by Jesus Cagide on 7/15/15.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FXBlurView.h"
 
+@interface VimoParallaxViewController : UIViewController
 
-
-@interface ViewController : UIViewController
 
 
 @end
-

@@ -13,6 +13,9 @@
 		A6DE68861B57768400195848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DE68841B57768400195848 /* Main.storyboard */; };
 		A6DE68881B57768400195848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6DE68871B57768400195848 /* Assets.xcassets */; };
 		A6DE688B1B57768400195848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6DE68891B57768400195848 /* LaunchScreen.storyboard */; };
+		A6DE689A1B57870100195848 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE68991B57870100195848 /* FXBlurView.m */; };
+		A6DE689D1B5787C800195848 /* VimoParallaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE689C1B5787C800195848 /* VimoParallaxViewController.m */; };
+		A6DE68A01B5794F100195848 /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE689F1B5794F100195848 /* UIView+Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		A6DE68871B57768400195848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6DE688A1B57768400195848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6DE688C1B57768400195848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6DE68981B57870100195848 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXBlurView.h; path = Libs/FXBlurView/FXBlurView/FXBlurView.h; sourceTree = SOURCE_ROOT; };
+		A6DE68991B57870100195848 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXBlurView.m; path = Libs/FXBlurView/FXBlurView/FXBlurView.m; sourceTree = SOURCE_ROOT; };
+		A6DE689B1B5787C800195848 /* VimoParallaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimoParallaxViewController.h; sourceTree = "<group>"; };
+		A6DE689C1B5787C800195848 /* VimoParallaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimoParallaxViewController.m; sourceTree = "<group>"; };
+		A6DE689E1B5794F100195848 /* UIView+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utilities.h"; sourceTree = "<group>"; };
+		A6DE689F1B5794F100195848 /* UIView+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,8 @@
 		A6DE687A1B57768400195848 /* VPBSampler */ = {
 			isa = PBXGroup;
 			children = (
+				A6DE68971B5786E900195848 /* Lib */,
+				A6DE68931B5785C600195848 /* ViewControllers */,
 				A6DE687E1B57768400195848 /* AppDelegate.h */,
 				A6DE687F1B57768400195848 /* AppDelegate.m */,
 				A6DE68811B57768400195848 /* ViewController.h */,
@@ -77,6 +88,34 @@
 				A6DE687C1B57768400195848 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6DE68931B5785C600195848 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A6DE68941B5785D200195848 /* Protocols */,
+				A6DE689B1B5787C800195848 /* VimoParallaxViewController.h */,
+				A6DE689C1B5787C800195848 /* VimoParallaxViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A6DE68941B5785D200195848 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		A6DE68971B5786E900195848 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A6DE68981B57870100195848 /* FXBlurView.h */,
+				A6DE68991B57870100195848 /* FXBlurView.m */,
+				A6DE689E1B5794F100195848 /* UIView+Utilities.h */,
+				A6DE689F1B5794F100195848 /* UIView+Utilities.m */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DE68831B57768400195848 /* ViewController.m in Sources */,
+				A6DE68A01B5794F100195848 /* UIView+Utilities.m in Sources */,
+				A6DE689D1B5787C800195848 /* VimoParallaxViewController.m in Sources */,
+				A6DE689A1B57870100195848 /* FXBlurView.m in Sources */,
 				A6DE68801B57768400195848 /* AppDelegate.m in Sources */,
 				A6DE687D1B57768400195848 /* main.m in Sources */,
 			);
