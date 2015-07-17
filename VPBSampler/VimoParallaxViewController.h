@@ -11,6 +11,13 @@
 
 @interface VimoParallaxViewController : UIViewController
 
+@property(nonatomic, assign) CGFloat  headerTitleHeigth;
+@property(nonatomic, assign) CGFloat  blurDistance;
+@property(nonatomic, assign) CGFloat  headerHeight;
 
+
+-(void) setBlurMaskColor:(UIColor *)blurMaskColor;
+
+-(void) setHeaderView:(UIView *)headerView;
 
 @end
