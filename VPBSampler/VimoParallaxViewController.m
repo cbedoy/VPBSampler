@@ -40,7 +40,7 @@ static CGFloat INVIS_DELTA = 50.0f;
     _mainScrollView.delegate = self;
     _mainScrollView.bounces = YES;
     _mainScrollView.alwaysBounceVertical = YES;
-    _mainScrollView.contentSize = CGSizeMake(self.view.width, 1000);
+    //_mainScrollView.contentSize = CGSizeMake(self.view.width, 1000);
     _mainScrollView.showsVerticalScrollIndicator = YES;
     _mainScrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _mainScrollView.autoresizesSubviews = YES;
@@ -67,14 +67,6 @@ static CGFloat INVIS_DELTA = 50.0f;
     _scrollViewContainer.autoresizesSubviews=YES;
     
     
-    /* UILabel* _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake([self horizontalOffset], [self headerHeight] - 50, self.view.frame.size.width - 15 - [self horizontalOffset], 25)];
-     [_titleLabel setBackgroundColor:[UIColor redColor]];
-     [_titleLabel setTextColor:[UIColor whiteColor]];
-     [_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
-     [_titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
-     
-     [_titleLabel setText:@"Hello I'm a table"];*/
-    
     _contentView = [self contentView];
     _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [_scrollViewContainer addSubview:_contentView];
@@ -94,7 +86,7 @@ static CGFloat INVIS_DELTA = 50.0f;
     [self setNeedsScrollViewAppearanceUpdate];
 }
 
-//Important for the correct render of tableView scroll size 
+//Important for the correct render of tableView scroll size
 - (void)setNeedsScrollViewAppearanceUpdate
 {
     _mainScrollView.contentSize = CGSizeMake(self.view.width, _contentView.contentSize.height + self.headerScrollView.height);
@@ -163,6 +155,7 @@ static CGFloat INVIS_DELTA = 50.0f;
         _contentView.contentOffset = CGPointMake (0, delta - backgroundScrollViewLimit);
         
         CGFloat contentOffsetY = -backgroundScrollViewLimit * 0.5f;
+        
         [ self.headerScrollView setContentOffset:(CGPoint){0,contentOffsetY} animated:NO];
     }
     else {
@@ -205,13 +198,24 @@ static CGFloat INVIS_DELTA = 50.0f;
     self.blurMaskView.autoresizesSubviews = YES;
     [self.blurMaskView setAlpha:0.0f];
     [self.blurMaskView setBlurEnabled:YES];
-    [self.blurMaskView setBlurRadius:10];
+    [self.blurMaskView setBlurRadius:20];
     [self.blurMaskView setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
     [self.blurMaskView addSubview:self.blurColorView];
     
     [_floatingTitleHeaderView addSubview:self.headerView];
     [_floatingTitleHeaderView insertSubview:self.blurMaskView aboveSubview:self.headerView];
     [self.headerScrollView setAutoresizesSubviews:YES];
+    
+    
+    UILabel* _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake([self horizontalOffset], [self headerHeight] - 50, self.view.frame.size.width - 15 - [self horizontalOffset], 25)];
+    //[_titleLabel setBackgroundColor:[UIColor redColor]];
+    [_titleLabel setTextColor:[UIColor whiteColor]];
+    //[_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    [_titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    
+    [_titleLabel setText:@"Hello I'm a the headerLabel"];
+    
+    [_floatingTitleHeaderView insertSubview:_titleLabel aboveSubview:self.blurMaskView];
 }
 
 @end

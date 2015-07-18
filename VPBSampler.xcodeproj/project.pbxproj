@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A65EBFEC1B58EA2E00F75197 /* meatballs.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */; };
 		A6AD6F6D1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */; };
+		A6AD6F721B59C52E008DE4FF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F711B59C52E008DE4FF /* SwipeView.m */; };
 		A6DE687D1B57768400195848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE687C1B57768400195848 /* main.m */; };
 		A6DE68801B57768400195848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE687F1B57768400195848 /* AppDelegate.m */; };
 		A6DE68831B57768400195848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE68821B57768400195848 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 		A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = meatballs.jpeg; path = Resources/meatballs.jpeg; sourceTree = SOURCE_ROOT; };
 		A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimoBlurHeaderTableViewViewController.h; sourceTree = "<group>"; };
 		A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimoBlurHeaderTableViewViewController.m; sourceTree = "<group>"; };
+		A6AD6F701B59C52E008DE4FF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = Libs/SwipeView/SwipeView.h; sourceTree = SOURCE_ROOT; };
+		A6AD6F711B59C52E008DE4FF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = Libs/SwipeView/SwipeView.m; sourceTree = SOURCE_ROOT; };
 		A6DE68781B57768400195848 /* VPBSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VPBSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DE687C1B57768400195848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A6DE687E1B57768400195848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +78,15 @@
 				A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A6AD6F731B59CB0B008DE4FF /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+				A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */,
+				A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */,
+			);
+			name = Samples;
 			sourceTree = "<group>";
 		};
 		A6DE686F1B57768400195848 = {
@@ -125,12 +137,11 @@
 		A6DE68931B5785C600195848 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A6AD6F731B59CB0B008DE4FF /* Samples */,
 				A6DE68A11B585EA900195848 /* Artifacts */,
 				A6DE68941B5785D200195848 /* Protocols */,
 				A6DE689B1B5787C800195848 /* VimoParallaxViewController.h */,
 				A6DE689C1B5787C800195848 /* VimoParallaxViewController.m */,
-				A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */,
-				A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -145,6 +156,8 @@
 		A6DE68971B5786E900195848 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A6AD6F701B59C52E008DE4FF /* SwipeView.h */,
+				A6AD6F711B59C52E008DE4FF /* SwipeView.m */,
 				A6DE68981B57870100195848 /* FXBlurView.h */,
 				A6DE68991B57870100195848 /* FXBlurView.m */,
 				A6DE689E1B5794F100195848 /* UIView+Utilities.h */,
@@ -277,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DE68831B57768400195848 /* ViewController.m in Sources */,
+				A6AD6F721B59C52E008DE4FF /* SwipeView.m in Sources */,
 				A6DE68A01B5794F100195848 /* UIView+Utilities.m in Sources */,
 				A6DE689D1B5787C800195848 /* VimoParallaxViewController.m in Sources */,
 				A6DE689A1B57870100195848 /* FXBlurView.m in Sources */,

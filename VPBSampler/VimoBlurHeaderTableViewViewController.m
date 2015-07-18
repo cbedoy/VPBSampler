@@ -7,6 +7,7 @@
 //
 
 #import "VimoBlurHeaderTableViewViewController.h"
+#import "UIView+Utilities.h"
 
 @interface VimoBlurHeaderTableViewViewController (){
     UITableView *_tableView;
@@ -22,7 +23,11 @@
     [super viewDidLoad];
     
     UIView* view= [[NSBundle mainBundle] loadNibNamed:@"headerSample" owner:self options:nil][0];
+    
     [self setHeaderView:view];
+    [self setHeaderTitleHeigth:100];
+    [self setBlurMaskColor:[UIColor blackColor]];
+    [self setBlurDistance:100];
 }
 
 - (UITableView *)tableView{
