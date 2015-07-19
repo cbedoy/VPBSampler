@@ -1,34 +1,37 @@
 //
-//  VimoParallaxViewController.m
+//  VimoHResizeHeaderView.m
 //  VPBSampler
 //
-//  Created by Jesus Cagide on 7/15/15.
+//  Created by Jesus Cagide on 7/17/15.
 //  Copyright © 2015 Jesus Cagide. All rights reserved.
 //
 
-#import "VimoParallaxViewController.h"
-#import "FXBlurView.h"
+#import "VimoHResizeHeaderView.h"
 #import "UIView+Utilities.h"
+#import "ARLabel.h"
+#import "ExampleViewController.h"
 
-@interface VimoParallaxViewController ()<UIScrollViewDelegate>
-{
+@interface VimoHResizeHeaderView ()<UIScrollViewDelegate>{
     UIScrollView *_mainScrollView;
     UIView *_floatingTitleHeaderView;
     UIScrollView *_contentView;
-    
+    UILabel* _titleLabel;
+    int fontSize;
 }
 @property(nonatomic, strong) UIScrollView * headerScrollView;
-@property(nonatomic,strong) FXBlurView *blurMaskView;
 @property(nonatomic,strong) UIView *blurColorView;
+@property(nonatomic,strong)UIView* scrollViewContainer;
 @property(nonatomic, assign) UIView * headerView;
 @property(nonatomic, assign) UIView * bodyView;
-@property(nonatomic,strong)UIView* scrollViewContainer;
+
+@property(nonatomic, strong) ExampleViewController * pager;
 
 @end
 
 static CGFloat INVIS_DELTA = 50.0f;
 
-@implementation VimoParallaxViewController
+@implementation VimoHResizeHeaderView
+
 
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -41,7 +44,7 @@ static CGFloat INVIS_DELTA = 50.0f;
     _mainScrollView.delegate = self;
     _mainScrollView.bounces = YES;
     _mainScrollView.alwaysBounceVertical = YES;
-    //_mainScrollView.contentSize = CGSizeMake(self.view.width, 1000);
+    _mainScrollView.contentSize = CGSizeMake(self.view.width, 1000);
     _mainScrollView.showsVerticalScrollIndicator = YES;
     _mainScrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _mainScrollView.autoresizesSubviews = YES;
@@ -58,7 +61,8 @@ static CGFloat INVIS_DELTA = 50.0f;
     
     _floatingTitleHeaderView = [[UIView alloc] initWithFrame: self.headerScrollView.frame];
     _floatingTitleHeaderView.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
-    [_floatingTitleHeaderView setBackgroundColor:[UIColor clearColor]];
+    [_floatingTitleHeaderView setBackgroundColor:[UIColor grayColor]];
+    
     _floatingTitleHeaderView.autoresizesSubviews = YES;
     [_floatingTitleHeaderView setUserInteractionEnabled:NO];
     
@@ -67,10 +71,40 @@ static CGFloat INVIS_DELTA = 50.0f;
     [_scrollViewContainer setBackgroundColor:[UIColor greenColor]];
     _scrollViewContainer.autoresizesSubviews=YES;
     
+    self.pager= [ExampleViewController new];
     
-    _contentView = [self contentView];
+    self.pager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    self.pager.view.height=  _scrollViewContainer.height;
+    self.pager.view.width = _scrollViewContainer.width;
+    
+    [_scrollViewContainer addSubview:self.pager.view];
+    
+    
+    
+ 
+    
+    
+    /*_contentView = [self contentView];
     _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    [_scrollViewContainer addSubview:_contentView];
+    [_scrollViewContainer addSubview:_contentView];*/
+    
+    
+    
+    _titleLabel = [[UILabel alloc] initWithFrame:
+                   CGRectMake(0, [self headerHeight] - 70, self.view.width, 60)];
+    
+    [_titleLabel setBackgroundColor:[UIColor redColor]];
+    [_titleLabel setTextColor:[UIColor whiteColor]];
+    [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    fontSize = 25;
+    [_titleLabel setFont:[UIFont systemFontOfSize:25]];
+    
+    [_titleLabel setText:@"Hello I'm a the headerLabel"];
+
+    
+    [_floatingTitleHeaderView addSubview:_titleLabel];
     
     [_mainScrollView addSubview: self.headerScrollView];//blue
     [_mainScrollView addSubview:_floatingTitleHeaderView];// red
@@ -79,7 +113,7 @@ static CGFloat INVIS_DELTA = 50.0f;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_contentView setFrame:CGRectMake(0, 0, _scrollViewContainer.width, self.view.height - [self offsetHeight] )];
+    //[_contentView setFrame:CGRectMake(0, 0, CGRectGetWidth(_scrollViewContainer.frame), CGRectGetHeight(self.view.frame) - [self offsetHeight] )];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -90,7 +124,7 @@ static CGFloat INVIS_DELTA = 50.0f;
 //Important for the correct render of tableView scroll size
 - (void)setNeedsScrollViewAppearanceUpdate
 {
-    _mainScrollView.contentSize = CGSizeMake(self.view.width, _contentView.contentSize.height + self.headerScrollView.height);
+    //_mainScrollView.contentSize = CGSizeMake(self.view.width, _contentView.contentSize.height + self.headerScrollView.height);
 }
 
 - (UIScrollView*)contentView{
@@ -121,18 +155,31 @@ static CGFloat INVIS_DELTA = 50.0f;
     CGFloat backgroundScrollViewLimit =  self.headerScrollView.height - [self offsetHeight];
     
     if (scrollView.contentOffset.y < 0.0f) {
-       
+        
         //set alfa in floating title header
         delta = fabs(MIN(0.0f, _mainScrollView.contentOffset.y + [self navBarHeight]));
-        //set big the header view 
-         self.headerScrollView.frame = CGRectMake(CGRectGetMinX(rect) - delta / 2.0f, CGRectGetMinY(rect) - delta, _scrollViewContainer.width + delta, CGRectGetHeight(rect) + delta);
+        //set big the header view
+        self.headerScrollView.frame = CGRectMake(CGRectGetMinX(rect) - delta / 2.0f, CGRectGetMinY(rect) - delta, _scrollViewContainer.width + delta, CGRectGetHeight(rect) + delta);
         //[_floatingTitleHeaderView setAlpha:(INVIS_DELTA - delta) / INVIS_DELTA];
+        
+        NSLog( @" invis delta %f, delta %f,   reslt %f ",(INVIS_DELTA - delta),delta,(INVIS_DELTA - delta) / INVIS_DELTA );
+        
+        
     } else {
         delta = _mainScrollView.contentOffset.y;
         //set alfas
         CGFloat newAlpha = 1 - ((self.blurDistance - delta)/ self.blurDistance);
-        [self.blurMaskView setAlpha:newAlpha];
         [_floatingTitleHeaderView setAlpha:1];
+        
+          NSLog( @"new alpha %f", newAlpha);
+        if (newAlpha<=0.40 )
+        {
+            CGFloat new= 25 - 25*newAlpha;
+            [_titleLabel setFont:[UIFont systemFontOfSize:new]];
+        }
+     
+        NSLog( @"delta chido %f", delta);
+        
         [self stickHeaderViewInBaseOf:delta andBackgroundViewLimit:backgroundScrollViewLimit];
     }
 }
@@ -144,26 +191,26 @@ static CGFloat INVIS_DELTA = 50.0f;
     CGRect rect = CGRectMake(0, 0, _scrollViewContainer.width, self.headerHeight);
     if (delta > backgroundScrollViewLimit) {
         
-         self.headerScrollView.frame = (CGRect) {.origin = {0, delta -  self.headerScrollView.height + [self offsetHeight]},
-                                                 .size = {_scrollViewContainer.width, self.headerHeight}};
+        self.headerScrollView.frame = (CGRect) {.origin = {0, delta -  self.headerScrollView.height + [self offsetHeight]},
+            .size = {_scrollViewContainer.width, self.headerHeight}};
         
         _floatingTitleHeaderView.frame = (CGRect) {.origin = {0, delta - _floatingTitleHeaderView.height + [self offsetHeight]},
-                                                   .size = {_scrollViewContainer.width, self.headerHeight}};
+            .size = {_scrollViewContainer.width, self.headerHeight}};
         
         _scrollViewContainer.frame = (CGRect){.origin = {0, CGRectGetMinY( self.headerScrollView.frame) +  self.headerScrollView.height},
-                                              .size = _scrollViewContainer.frame.size };
+            .size = _scrollViewContainer.frame.size };
         
-        _contentView.contentOffset = CGPointMake (0, delta - backgroundScrollViewLimit);
+        //_contentView.contentOffset = CGPointMake (0, delta - backgroundScrollViewLimit);
         
         CGFloat contentOffsetY = -backgroundScrollViewLimit * 0.5f;
         
         [ self.headerScrollView setContentOffset:(CGPoint){0,contentOffsetY} animated:NO];
     }
     else {
-         self.headerScrollView.frame = rect;
+        self.headerScrollView.frame = rect;
         _floatingTitleHeaderView.frame = rect;
         _scrollViewContainer.frame = (CGRect){.origin = {0, CGRectGetMinY(rect) + CGRectGetHeight(rect)}, .size = _scrollViewContainer.frame.size };
-        [_contentView setContentOffset:(CGPoint){0,0} animated:NO];
+        //[_contentView setContentOffset:(CGPoint){0,0} animated:NO];
         [ self.headerScrollView setContentOffset:CGPointMake(0, -delta * 0.5f)animated:NO];
     }
 }
@@ -175,7 +222,6 @@ static CGFloat INVIS_DELTA = 50.0f;
 }
 
 
-
 -(void) setHeaderView:(UIView *)headerView
 {
     _headerView= headerView;
@@ -185,38 +231,21 @@ static CGFloat INVIS_DELTA = 50.0f;
     [self.headerView setWidth:_floatingTitleHeaderView.width];
     [self.headerView setHeight:_floatingTitleHeaderView.height];
     
-    self.blurMaskView = [[FXBlurView alloc] initWithFrame:self.headerView.frame];
-    
-    self.blurColorView = [UIView new];
-    [self.blurColorView setContentMode:UIViewContentModeScaleAspectFill];
-    self.blurColorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.blurColorView setOrigin:CGPointMake(0, 0) size:self.blurMaskView.size];
-    [self.blurColorView setBackgroundColor:[UIColor blackColor]];
-    [self.blurColorView setAlpha:0.2];
-    
-    [self.blurMaskView setContentMode:UIViewContentModeScaleAspectFill];
-    self.blurMaskView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.blurMaskView.autoresizesSubviews = YES;
-    [self.blurMaskView setAlpha:0.0f];
-    [self.blurMaskView setBlurEnabled:YES];
-    [self.blurMaskView setBlurRadius:20];
-    [self.blurMaskView setTintAdjustmentMode:UIViewTintAdjustmentModeNormal];
-    [self.blurMaskView addSubview:self.blurColorView];
-    
     [_floatingTitleHeaderView addSubview:self.headerView];
-    [_floatingTitleHeaderView insertSubview:self.blurMaskView aboveSubview:self.headerView];
     [self.headerScrollView setAutoresizesSubviews:YES];
     
     
     UILabel* _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake([self horizontalOffset], [self headerHeight] - 50, self.view.frame.size.width - 15 - [self horizontalOffset], 25)];
-    //[_titleLabel setBackgroundColor:[UIColor redColor]];
+    [_titleLabel setBackgroundColor:[UIColor redColor]];
     [_titleLabel setTextColor:[UIColor whiteColor]];
-    //[_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    [_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
     [_titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
     
     [_titleLabel setText:@"Hello I'm a the headerLabel"];
     
-    [_floatingTitleHeaderView insertSubview:_titleLabel aboveSubview:self.blurMaskView];
-}
+    [_floatingTitleHeaderView addSubview:_titleLabel];
+
+    
+    }
 
 @end

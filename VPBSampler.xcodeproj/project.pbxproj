@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A65EBFEC1B58EA2E00F75197 /* meatballs.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */; };
+		A652DA781B5B9F05001AC437 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DA761B5B9F05001AC437 /* ExampleViewController.m */; };
+		A652DA791B5B9F05001AC437 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A652DA771B5B9F05001AC437 /* ExampleViewController.xib */; };
+		A678B9C81B5B9962000F4339 /* ARLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B9C71B5B9962000F4339 /* ARLabel.m */; };
 		A6AD6F6D1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */; };
 		A6AD6F721B59C52E008DE4FF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F711B59C52E008DE4FF /* SwipeView.m */; };
+		A6AD6F781B59EB15008DE4FF /* VimoHResizeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F771B59EB14008DE4FF /* VimoHResizeHeaderView.m */; };
 		A6DE687D1B57768400195848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE687C1B57768400195848 /* main.m */; };
 		A6DE68801B57768400195848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE687F1B57768400195848 /* AppDelegate.m */; };
 		A6DE68831B57768400195848 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE68821B57768400195848 /* ViewController.m */; };
@@ -26,11 +29,17 @@
 /* Begin PBXFileReference section */
 		2ADA9B1511A06AB67D83A212 /* Pods-VPBSampler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPBSampler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VPBSampler/Pods-VPBSampler.debug.xcconfig"; sourceTree = "<group>"; };
 		79BF28BCF31B76D21EF20D97 /* Pods-VPBSampler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VPBSampler.release.xcconfig"; path = "Pods/Target Support Files/Pods-VPBSampler/Pods-VPBSampler.release.xcconfig"; sourceTree = "<group>"; };
-		A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = meatballs.jpeg; path = Resources/meatballs.jpeg; sourceTree = SOURCE_ROOT; };
+		A652DA751B5B9F05001AC437 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		A652DA761B5B9F05001AC437 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		A652DA771B5B9F05001AC437 /* ExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
+		A678B9C61B5B9962000F4339 /* ARLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARLabel.h; path = Libs/ARLabel/ARLabel.h; sourceTree = SOURCE_ROOT; };
+		A678B9C71B5B9962000F4339 /* ARLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARLabel.m; path = Libs/ARLabel/ARLabel.m; sourceTree = SOURCE_ROOT; };
 		A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimoBlurHeaderTableViewViewController.h; sourceTree = "<group>"; };
 		A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimoBlurHeaderTableViewViewController.m; sourceTree = "<group>"; };
 		A6AD6F701B59C52E008DE4FF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = Libs/SwipeView/SwipeView.h; sourceTree = SOURCE_ROOT; };
 		A6AD6F711B59C52E008DE4FF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = Libs/SwipeView/SwipeView.m; sourceTree = SOURCE_ROOT; };
+		A6AD6F761B59EB14008DE4FF /* VimoHResizeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimoHResizeHeaderView.h; sourceTree = "<group>"; };
+		A6AD6F771B59EB14008DE4FF /* VimoHResizeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VimoHResizeHeaderView.m; sourceTree = "<group>"; };
 		A6DE68781B57768400195848 /* VPBSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VPBSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DE687C1B57768400195848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A6DE687E1B57768400195848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,7 +84,6 @@
 		A65EBFEA1B58EA1D00F75197 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A65EBFEB1B58EA2E00F75197 /* meatballs.jpeg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -83,8 +91,13 @@
 		A6AD6F731B59CB0B008DE4FF /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				A652DA751B5B9F05001AC437 /* ExampleViewController.h */,
+				A652DA761B5B9F05001AC437 /* ExampleViewController.m */,
+				A652DA771B5B9F05001AC437 /* ExampleViewController.xib */,
 				A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */,
 				A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */,
+				A6AD6F761B59EB14008DE4FF /* VimoHResizeHeaderView.h */,
+				A6AD6F771B59EB14008DE4FF /* VimoHResizeHeaderView.m */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -156,6 +169,8 @@
 		A6DE68971B5786E900195848 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A678B9C61B5B9962000F4339 /* ARLabel.h */,
+				A678B9C71B5B9962000F4339 /* ARLabel.m */,
 				A6AD6F701B59C52E008DE4FF /* SwipeView.h */,
 				A6AD6F711B59C52E008DE4FF /* SwipeView.m */,
 				A6DE68981B57870100195848 /* FXBlurView.h */,
@@ -244,8 +259,8 @@
 				A6DE68A31B585ED400195848 /* headerSample.xib in Resources */,
 				A6DE688B1B57768400195848 /* LaunchScreen.storyboard in Resources */,
 				A6DE68881B57768400195848 /* Assets.xcassets in Resources */,
-				A65EBFEC1B58EA2E00F75197 /* meatballs.jpeg in Resources */,
 				A6DE68861B57768400195848 /* Main.storyboard in Resources */,
+				A652DA791B5B9F05001AC437 /* ExampleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,13 +305,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DE68831B57768400195848 /* ViewController.m in Sources */,
+				A652DA781B5B9F05001AC437 /* ExampleViewController.m in Sources */,
 				A6AD6F721B59C52E008DE4FF /* SwipeView.m in Sources */,
 				A6DE68A01B5794F100195848 /* UIView+Utilities.m in Sources */,
 				A6DE689D1B5787C800195848 /* VimoParallaxViewController.m in Sources */,
 				A6DE689A1B57870100195848 /* FXBlurView.m in Sources */,
 				A6DE68801B57768400195848 /* AppDelegate.m in Sources */,
 				A6DE687D1B57768400195848 /* main.m in Sources */,
+				A6AD6F781B59EB15008DE4FF /* VimoHResizeHeaderView.m in Sources */,
 				A6AD6F6D1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m in Sources */,
+				A678B9C81B5B9962000F4339 /* ARLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
