@@ -9,12 +9,12 @@
 #import "VimoHResizeHeaderView.h"
 #import "UIView+Utilities.h"
 #import "ARLabel.h"
-#import "ExampleViewController.h"
+#import "SimpleTableViewPagerViewController.h"
 
 @interface VimoHResizeHeaderView ()<UIScrollViewDelegate>{
     UIScrollView *_mainScrollView;
     UIView *_floatingTitleHeaderView;
-    UIScrollView *_contentView;
+    
     UILabel* _titleLabel;
     int fontSize;
 }
@@ -24,7 +24,7 @@
 @property(nonatomic, assign) UIView * headerView;
 @property(nonatomic, assign) UIView * bodyView;
 
-@property(nonatomic, strong) ExampleViewController * pager;
+@property(nonatomic, strong) SimpleTableViewPagerViewController * pager;
 
 @end
 
@@ -71,19 +71,18 @@ static CGFloat INVIS_DELTA = 50.0f;
     [_scrollViewContainer setBackgroundColor:[UIColor greenColor]];
     _scrollViewContainer.autoresizesSubviews=YES;
     
-    self.pager= [ExampleViewController new];
+    self.pager= [[SimpleTableViewPagerViewController alloc] initWithNumberOfPages:4];
+    
+    self.pager.titleStrings = [NSArray arrayWithObjects:@"Page 0", @"Page 1", @"Page 2", @"Page 3", nil];
     
     self.pager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     self.pager.view.height=  _scrollViewContainer.height;
     self.pager.view.width = _scrollViewContainer.width;
     
+    self.contentView = [self.pager tableViewForPageIndex:0];
+    
     [_scrollViewContainer addSubview:self.pager.view];
-    
-    
-    
- 
-    
     
     /*_contentView = [self contentView];
     _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -113,7 +112,7 @@ static CGFloat INVIS_DELTA = 50.0f;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    //[_contentView setFrame:CGRectMake(0, 0, CGRectGetWidth(_scrollViewContainer.frame), CGRectGetHeight(self.view.frame) - [self offsetHeight] )];
+    [_contentView setFrame:CGRectMake(0, 0, _scrollViewContainer.width, self.view.height - [self offsetHeight] )];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -124,14 +123,17 @@ static CGFloat INVIS_DELTA = 50.0f;
 //Important for the correct render of tableView scroll size
 - (void)setNeedsScrollViewAppearanceUpdate
 {
-    //_mainScrollView.contentSize = CGSizeMake(self.view.width, _contentView.contentSize.height + self.headerScrollView.height);
+    _mainScrollView.contentSize = CGSizeMake(self.view.width, _contentView.contentSize.height + self.headerScrollView.height);
 }
 
-- (UIScrollView*)contentView{
-    UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:CGRectZero];
-    contentView.scrollEnabled = NO;
-    return contentView;
+-(void) setContentView:(UIScrollView *)contentView
+{
+    _contentView = contentView;
+     _contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 }
+
+
+
 
 - (CGFloat)horizontalOffset{
     return 15.0f;
@@ -200,7 +202,8 @@ static CGFloat INVIS_DELTA = 50.0f;
         _scrollViewContainer.frame = (CGRect){.origin = {0, CGRectGetMinY( self.headerScrollView.frame) +  self.headerScrollView.height},
             .size = _scrollViewContainer.frame.size };
         
-        //_contentView.contentOffset = CGPointMake (0, delta - backgroundScrollViewLimit);
+        
+        _contentView.contentOffset = CGPointMake (0, delta - backgroundScrollViewLimit);
         
         CGFloat contentOffsetY = -backgroundScrollViewLimit * 0.5f;
         
@@ -210,7 +213,9 @@ static CGFloat INVIS_DELTA = 50.0f;
         self.headerScrollView.frame = rect;
         _floatingTitleHeaderView.frame = rect;
         _scrollViewContainer.frame = (CGRect){.origin = {0, CGRectGetMinY(rect) + CGRectGetHeight(rect)}, .size = _scrollViewContainer.frame.size };
-        //[_contentView setContentOffset:(CGPoint){0,0} animated:NO];
+        
+        
+        [_contentView setContentOffset:(CGPoint){0,0} animated:NO];
         [ self.headerScrollView setContentOffset:CGPointMake(0, -delta * 0.5f)animated:NO];
     }
 }
@@ -234,7 +239,6 @@ static CGFloat INVIS_DELTA = 50.0f;
     [_floatingTitleHeaderView addSubview:self.headerView];
     [self.headerScrollView setAutoresizesSubviews:YES];
     
-    
     UILabel* _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake([self horizontalOffset], [self headerHeight] - 50, self.view.frame.size.width - 15 - [self horizontalOffset], 25)];
     [_titleLabel setBackgroundColor:[UIColor redColor]];
     [_titleLabel setTextColor:[UIColor whiteColor]];
@@ -245,7 +249,6 @@ static CGFloat INVIS_DELTA = 50.0f;
     
     [_floatingTitleHeaderView addSubview:_titleLabel];
 
-    
     }
 
 @end

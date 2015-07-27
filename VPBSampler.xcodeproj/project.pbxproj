@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		A652DA781B5B9F05001AC437 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DA761B5B9F05001AC437 /* ExampleViewController.m */; };
 		A652DA791B5B9F05001AC437 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A652DA771B5B9F05001AC437 /* ExampleViewController.xib */; };
+		A652DA7D1B5C1323001AC437 /* ExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DA7B1B5C1323001AC437 /* ExampleTableViewController.m */; };
+		A652DA7E1B5C1323001AC437 /* ExampleTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A652DA7C1B5C1323001AC437 /* ExampleTableViewController.xib */; };
+		A652DACF1B5CA5FC001AC437 /* ARTableViewPagerPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DACA1B5CA5FC001AC437 /* ARTableViewPagerPageControl.m */; };
+		A652DAD01B5CA5FC001AC437 /* ARTableViewPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DACC1B5CA5FC001AC437 /* ARTableViewPagerView.m */; };
+		A652DAD11B5CA5FC001AC437 /* ARTableViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DACE1B5CA5FC001AC437 /* ARTableViewPagerViewController.m */; };
+		A652DAD41B5CA6D3001AC437 /* SimpleTableViewPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A652DAD31B5CA6D3001AC437 /* SimpleTableViewPagerViewController.m */; };
 		A678B9C81B5B9962000F4339 /* ARLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A678B9C71B5B9962000F4339 /* ARLabel.m */; };
 		A6AD6F6D1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */; };
 		A6AD6F721B59C52E008DE4FF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AD6F711B59C52E008DE4FF /* SwipeView.m */; };
@@ -32,6 +38,17 @@
 		A652DA751B5B9F05001AC437 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		A652DA761B5B9F05001AC437 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		A652DA771B5B9F05001AC437 /* ExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
+		A652DA7A1B5C1323001AC437 /* ExampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleTableViewController.h; sourceTree = "<group>"; };
+		A652DA7B1B5C1323001AC437 /* ExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleTableViewController.m; sourceTree = "<group>"; };
+		A652DA7C1B5C1323001AC437 /* ExampleTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleTableViewController.xib; sourceTree = "<group>"; };
+		A652DAC91B5CA5FC001AC437 /* ARTableViewPagerPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTableViewPagerPageControl.h; path = Libs/ARTable/ARTableViewPagerPageControl.h; sourceTree = SOURCE_ROOT; };
+		A652DACA1B5CA5FC001AC437 /* ARTableViewPagerPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTableViewPagerPageControl.m; path = Libs/ARTable/ARTableViewPagerPageControl.m; sourceTree = SOURCE_ROOT; };
+		A652DACB1B5CA5FC001AC437 /* ARTableViewPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTableViewPagerView.h; path = Libs/ARTable/ARTableViewPagerView.h; sourceTree = SOURCE_ROOT; };
+		A652DACC1B5CA5FC001AC437 /* ARTableViewPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTableViewPagerView.m; path = Libs/ARTable/ARTableViewPagerView.m; sourceTree = SOURCE_ROOT; };
+		A652DACD1B5CA5FC001AC437 /* ARTableViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARTableViewPagerViewController.h; path = Libs/ARTable/ARTableViewPagerViewController.h; sourceTree = SOURCE_ROOT; };
+		A652DACE1B5CA5FC001AC437 /* ARTableViewPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARTableViewPagerViewController.m; path = Libs/ARTable/ARTableViewPagerViewController.m; sourceTree = SOURCE_ROOT; };
+		A652DAD21B5CA6D3001AC437 /* SimpleTableViewPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTableViewPagerViewController.h; sourceTree = "<group>"; };
+		A652DAD31B5CA6D3001AC437 /* SimpleTableViewPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTableViewPagerViewController.m; sourceTree = "<group>"; };
 		A678B9C61B5B9962000F4339 /* ARLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARLabel.h; path = Libs/ARLabel/ARLabel.h; sourceTree = SOURCE_ROOT; };
 		A678B9C71B5B9962000F4339 /* ARLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ARLabel.m; path = Libs/ARLabel/ARLabel.m; sourceTree = SOURCE_ROOT; };
 		A6AD6F6B1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VimoBlurHeaderTableViewViewController.h; sourceTree = "<group>"; };
@@ -81,6 +98,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A652DAC81B5CA5DB001AC437 /* TablePager */ = {
+			isa = PBXGroup;
+			children = (
+				A652DAC91B5CA5FC001AC437 /* ARTableViewPagerPageControl.h */,
+				A652DACA1B5CA5FC001AC437 /* ARTableViewPagerPageControl.m */,
+				A652DACB1B5CA5FC001AC437 /* ARTableViewPagerView.h */,
+				A652DACC1B5CA5FC001AC437 /* ARTableViewPagerView.m */,
+				A652DACD1B5CA5FC001AC437 /* ARTableViewPagerViewController.h */,
+				A652DACE1B5CA5FC001AC437 /* ARTableViewPagerViewController.m */,
+			);
+			name = TablePager;
+			sourceTree = "<group>";
+		};
 		A65EBFEA1B58EA1D00F75197 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +121,8 @@
 		A6AD6F731B59CB0B008DE4FF /* Samples */ = {
 			isa = PBXGroup;
 			children = (
+				A652DAD21B5CA6D3001AC437 /* SimpleTableViewPagerViewController.h */,
+				A652DAD31B5CA6D3001AC437 /* SimpleTableViewPagerViewController.m */,
 				A652DA751B5B9F05001AC437 /* ExampleViewController.h */,
 				A652DA761B5B9F05001AC437 /* ExampleViewController.m */,
 				A652DA771B5B9F05001AC437 /* ExampleViewController.xib */,
@@ -98,6 +130,9 @@
 				A6AD6F6C1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m */,
 				A6AD6F761B59EB14008DE4FF /* VimoHResizeHeaderView.h */,
 				A6AD6F771B59EB14008DE4FF /* VimoHResizeHeaderView.m */,
+				A652DA7A1B5C1323001AC437 /* ExampleTableViewController.h */,
+				A652DA7B1B5C1323001AC437 /* ExampleTableViewController.m */,
+				A652DA7C1B5C1323001AC437 /* ExampleTableViewController.xib */,
 			);
 			name = Samples;
 			sourceTree = "<group>";
@@ -169,6 +204,7 @@
 		A6DE68971B5786E900195848 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				A652DAC81B5CA5DB001AC437 /* TablePager */,
 				A678B9C61B5B9962000F4339 /* ARLabel.h */,
 				A678B9C71B5B9962000F4339 /* ARLabel.m */,
 				A6AD6F701B59C52E008DE4FF /* SwipeView.h */,
@@ -256,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A652DA7E1B5C1323001AC437 /* ExampleTableViewController.xib in Resources */,
 				A6DE68A31B585ED400195848 /* headerSample.xib in Resources */,
 				A6DE688B1B57768400195848 /* LaunchScreen.storyboard in Resources */,
 				A6DE68881B57768400195848 /* Assets.xcassets in Resources */,
@@ -310,7 +347,12 @@
 				A6DE68A01B5794F100195848 /* UIView+Utilities.m in Sources */,
 				A6DE689D1B5787C800195848 /* VimoParallaxViewController.m in Sources */,
 				A6DE689A1B57870100195848 /* FXBlurView.m in Sources */,
+				A652DA7D1B5C1323001AC437 /* ExampleTableViewController.m in Sources */,
+				A652DAD01B5CA5FC001AC437 /* ARTableViewPagerView.m in Sources */,
+				A652DACF1B5CA5FC001AC437 /* ARTableViewPagerPageControl.m in Sources */,
 				A6DE68801B57768400195848 /* AppDelegate.m in Sources */,
+				A652DAD41B5CA6D3001AC437 /* SimpleTableViewPagerViewController.m in Sources */,
+				A652DAD11B5CA5FC001AC437 /* ARTableViewPagerViewController.m in Sources */,
 				A6DE687D1B57768400195848 /* main.m in Sources */,
 				A6AD6F781B59EB15008DE4FF /* VimoHResizeHeaderView.m in Sources */,
 				A6AD6F6D1B5908CB008DE4FF /* VimoBlurHeaderTableViewViewController.m in Sources */,

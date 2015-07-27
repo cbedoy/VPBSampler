@@ -7,12 +7,15 @@
 //
 
 #import "ExampleViewController.h"
-
+#import "ExampleTableViewController.h"
+#import "VimoBlurHeaderTableViewViewController.h"
 
 @interface ExampleViewController () <SwipeViewDataSource, SwipeViewDelegate>
 
 @property (nonatomic, weak) IBOutlet SwipeView *swipeView;
 @property (nonatomic, strong) NSMutableArray *items;
+
+@property (nonatomic, strong) NSMutableArray *views;
 
 @end
 
@@ -47,15 +50,24 @@
     
     //configure swipeView
     _swipeView.pagingEnabled = YES;
+    
     self.items = [NSMutableArray array];
+    self.views = [NSMutableArray array];
     for (int i = 0; i < 100; i++)
     {
         [_items addObject:@(i)];
+        ExampleTableViewController * table =[ExampleTableViewController new];
+        table.view.autoresizingMask=UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self.views addObject:table];
     }
-
-
 }
 
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -73,46 +85,19 @@
 
 - (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-    UILabel *label = nil;
-    
     //create new view if no view is available for recycling
     if (view == nil)
     {
-        //don't do anything specific to the index within
-        //this `if (view == nil) {...}` statement because the view will be
-        //recycled and used with other index values later
         view = [[UIView alloc] initWithFrame:self.swipeView.bounds];
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        
-        label = [[UILabel alloc] initWithFrame:view.bounds];
-        label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [label.font fontWithSize:50];
-        label.tag = 1;
-        [view addSubview:label];
-    }
-    else
+        //view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    }else
     {
-        //get a reference to the label in the recycled view
-        label = (UILabel *)[view viewWithTag:1];
+        [[view subviews]
+         makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }
 
-    //set background color
-    CGFloat red = arc4random() / (CGFloat)INT_MAX;
-    CGFloat green = arc4random() / (CGFloat)INT_MAX;
-    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
-    view.backgroundColor = [UIColor colorWithRed:red
-                                           green:green
-                                            blue:blue
-                                           alpha:1.0];
-    
-    //set item label
-    //remember to always set any properties of your carousel item
-    //views outside of the `if (view == nil) {...}` check otherwise
-    //you'll get weird issues with carousel item content appearing
-    //in the wrong place in the carousel
-    label.text = [_items[index] stringValue];
+    ExampleTableViewController * table = self.views[index];
+    [view addSubview:table.view];
     
     return view;
 }
