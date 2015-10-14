@@ -11,6 +11,7 @@
 
 @interface VimoBlurHeaderTableViewViewController (){
     UITableView *_tableView;
+    BOOL isKeyboardShowing;
 }
 
 
@@ -25,9 +26,11 @@
     UIView* view= [[NSBundle mainBundle] loadNibNamed:@"headerSample" owner:self options:nil][0];
     
     [self setHeaderView:view];
-    [self setHeaderTitleHeigth:100];
+    [self setHeaderTitleHeigth:44];
     [self setBlurMaskColor:[UIColor blackColor]];
-    [self setBlurDistance:100];
+    [self setBlurDistance:44];
+    [[self textField] setDelegate:self];
+
 }
 
 - (UITableView *)tableView{
@@ -52,11 +55,27 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 30;
+    return 5;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 5;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    isKeyboardShowing = YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    isKeyboardShowing = YES;
+}
+
+
+
+- (void)killScroll
+{
+    CGPoint offset = self.tableView.contentOffset;
+    [[self contentView] setContentOffset:offset animated:NO];
 }
 
 @end

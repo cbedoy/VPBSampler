@@ -14,7 +14,7 @@
 @property(nonatomic, assign) CGFloat  headerTitleHeigth;
 @property(nonatomic, assign) CGFloat  blurDistance;
 @property(nonatomic, assign) CGFloat  headerHeight;
-
+@property(nonatomic, strong) UITextField *textField;
 
 -(void) setBlurMaskColor:(UIColor *)blurMaskColor;
 

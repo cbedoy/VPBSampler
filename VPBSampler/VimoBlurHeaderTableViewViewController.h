@@ -8,7 +8,7 @@
 
 #import "VimoParallaxViewController.h"
 
-@interface VimoBlurHeaderTableViewViewController : VimoParallaxViewController<UITableViewDelegate, UITableViewDataSource>
+@interface VimoBlurHeaderTableViewViewController : VimoParallaxViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (readonly) UITableView *tableView;
 

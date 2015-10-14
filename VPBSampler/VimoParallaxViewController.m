@@ -60,7 +60,7 @@ static CGFloat INVIS_DELTA = 50.0f;
     _floatingTitleHeaderView.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
     [_floatingTitleHeaderView setBackgroundColor:[UIColor clearColor]];
     _floatingTitleHeaderView.autoresizesSubviews = YES;
-    [_floatingTitleHeaderView setUserInteractionEnabled:NO];
+    [_floatingTitleHeaderView setUserInteractionEnabled:YES];
     
     _scrollViewContainer = [[UIView alloc] initWithFrame:CGRectMake(0,  self.headerScrollView.height, self.view.width, self.view.height - [self offsetHeight] )];
     _scrollViewContainer.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -208,15 +208,16 @@ static CGFloat INVIS_DELTA = 50.0f;
     [self.headerScrollView setAutoresizesSubviews:YES];
     
     
-    UILabel* _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake([self horizontalOffset], [self headerHeight] - 50, self.view.frame.size.width - 15 - [self horizontalOffset], 25)];
-    //[_titleLabel setBackgroundColor:[UIColor redColor]];
-    [_titleLabel setTextColor:[UIColor whiteColor]];
-    //[_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
-    [_titleLabel setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(0, [self headerHeight] - 44, self.view.frame.size.width, 44)];
+    [self.textField setBackgroundColor:[UIColor whiteColor]];
+    [self.textField setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
+    [self.textField setPlaceholder:@"Hello I'm a the headerLabel"];
+
+    [self.textField setUserInteractionEnabled:YES];
+
     
-    [_titleLabel setText:@"Hello I'm a the headerLabel"];
-    
-    [_floatingTitleHeaderView insertSubview:_titleLabel aboveSubview:self.blurMaskView];
+    [_floatingTitleHeaderView insertSubview:self.textField aboveSubview:self.blurMaskView];
+    [_floatingTitleHeaderView setUserInteractionEnabled:YES];
 }
 
 @end
